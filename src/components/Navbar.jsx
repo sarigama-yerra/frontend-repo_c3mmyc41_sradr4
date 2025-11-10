@@ -4,6 +4,7 @@ import { ShoppingCart, Sun, Shield, LayoutDashboard } from 'lucide-react';
 const Navbar = ({ cartCount = 0, currentView = 'shop', onChangeView }) => {
   return (
     <header className="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-black/5">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2">
@@ -39,7 +40,7 @@ const Navbar = ({ cartCount = 0, currentView = 'shop', onChangeView }) => {
               <span className="absolute -top-1 -right-1 bg-yellow-400 text-gray-900 text-xs font-bold rounded-full w-5 h-5 grid place-items-center">
                 {cartCount}
               </span>
-              <div className="p-2 rounded-full bg-gray-900 text-white">
+              <div className="p-2 rounded-full bg-gray-900 text-white shadow-lg shadow-gray-900/20">
                 <ShoppingCart className="w-5 h-5" />
               </div>
             </div>

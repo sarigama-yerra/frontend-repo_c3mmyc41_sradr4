@@ -1,26 +1,41 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
     <section className="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] w-full overflow-hidden">
-      {/* Decorative background */}
+      {/* Decorative background with animated glow */}
       <div className="absolute inset-0">
-        <div className="absolute -top-20 -left-10 w-[60vw] h-[60vw] rounded-full bg-yellow-300/40 blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-[55vw] h-[55vw] rounded-full bg-amber-200/50 blur-3xl" />
+        <motion.div
+          className="absolute -top-20 -left-10 w-[60vw] h-[60vw] rounded-full bg-yellow-300/40 blur-3xl"
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="absolute bottom-0 right-0 w-[55vw] h-[55vw] rounded-full bg-amber-200/50 blur-3xl"
+          animate={{ scale: [1, 0.95, 1] }}
+          transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+        />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white via-white/60 to-transparent" />
       </div>
 
       {/* Floating orbs */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-10 top-24 w-24 h-24 rounded-full bg-white/60 backdrop-blur shadow-lg animate-[float_8s_ease-in-out_infinite]" />
-        <div className="absolute right-16 top-40 w-16 h-16 rounded-full bg-yellow-200/70 shadow-lg animate-[float_6s_ease-in-out_infinite]" />
-        <div className="absolute right-1/3 bottom-20 w-20 h-20 rounded-full bg-white/50 shadow-lg animate-[float_7s_ease-in-out_infinite]" />
-        <style>{`
-          @keyframes float {
-            0%, 100% { transform: translateY(0px) }
-            50% { transform: translateY(-18px) }
-          }
-        `}</style>
+        <motion.div
+          className="absolute left-10 top-24 w-24 h-24 rounded-full bg-white/60 backdrop-blur shadow-lg"
+          animate={{ y: [0, -18, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="absolute right-16 top-40 w-16 h-16 rounded-full bg-yellow-200/70 shadow-lg"
+          animate={{ y: [0, -14, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="absolute right-1/3 bottom-20 w-20 h-20 rounded-full bg-white/50 shadow-lg"
+          animate={{ y: [0, -16, 0] }}
+          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+        />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
